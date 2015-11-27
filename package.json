@@ -1,0 +1,16 @@
+{
+  "name": "react-flickity-component",
+  "version": "0.0.1",
+  "description": "react flickity component",
+  "main": "./lib/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "flickity": "^1.1.1",
+    "imagesloaded": "^3.2.0",
+    "react": "^0.14.3"
+  }
+}

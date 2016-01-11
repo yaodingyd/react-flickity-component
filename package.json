@@ -1,10 +1,10 @@
 {
   "name": "react-flickity-component",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "react flickity component",
   "main": "./lib/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha './tests/**/*.spec.js'"
   },
   "author": "",
   "license": "MIT",
@@ -20,8 +20,14 @@
     "react-component"
   ],
   "dependencies": {
-    "flickity": "^1.1.1",
+    "flickity": "^1.1.2",
     "imagesloaded": "^3.2.0",
     "react": "^0.14.3"
+  },
+  "devDependencies": {
+    "expect": "^1.13.4",
+    "jsdom": "^7.2.2",
+    "mocha": "^2.3.4",
+    "react-addons-test-utils": "^0.14.6"
   }
 }

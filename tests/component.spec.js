@@ -11,6 +11,8 @@ if (typeof window === 'undefined') {
   global.window = document.defaultView
   global.navigator = { userAgent: 'node.js' }
   global.Element = window.Element
+  global.getComputedStyle = window.getComputedStyle
+  global.HTMLElement = window.HTMLElement
 }
 
 var Flickity = require('../lib/index.js')(React)
@@ -40,6 +42,7 @@ describe('Flickity', function () {
     var expected = {
       accessibility: false,
       cellAlign: 'left',
+      dragThreshold: 3,
       freeScrollFriction: 2,
       friction: 2,
       percentPosition: false,
@@ -51,6 +54,7 @@ describe('Flickity', function () {
       prevNextButtons: false,
       leftArrowText: '-',
       rightArrowText: '-',
+      namespaceJQueryEvents: true,
       arrowShape: { x0: 20, x1: 60, y1: 50, x2: 70, y2: 40, x3: 10 },
       pageDots: false,
       pauseAutoPlayOnHover: false

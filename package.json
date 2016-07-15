@@ -20,14 +20,14 @@
     "react-component"
   ],
   "dependencies": {
-    "flickity": "^1.1.2",
-    "imagesloaded": "^3.2.0",
-    "react": "^0.14.3"
+    "flickity": "2.0.2",
+    "imagesloaded": "4.1.0",
+    "react": "15.0.1"
   },
   "devDependencies": {
     "expect": "^1.13.4",
-    "jsdom": "^7.2.2",
+    "jsdom": "9.4.1",
     "mocha": "^2.3.4",
-    "react-addons-test-utils": "^0.14.6"
+    "react-addons-test-utils": "15.0.1"
   }
 }

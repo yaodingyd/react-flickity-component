@@ -13,7 +13,10 @@ npm install react-flickity-component --save
 #### Usage:
 
 ```javascript
+// Commonjs
 import Flickity from 'react-flickity-component'
+// Or for ES2015 module
+import Flickity from 'react-flickity-component/src/index'
 
 const flickityOptions = {
     initialIndex: 2

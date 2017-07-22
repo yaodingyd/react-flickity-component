@@ -15,7 +15,7 @@ if (typeof window === 'undefined') {
   global.HTMLElement = window.HTMLElement
 }
 
-var Flickity = require('../lib/index.js')(React)
+var Flickity = require('../lib/index.js')
 
 describe('Flickity', function () {
   it('should render the component', function () {

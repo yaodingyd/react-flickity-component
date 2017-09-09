@@ -4,9 +4,9 @@
   "description": "react flickity component",
   "main": "./lib/index.js",
   "scripts": {
-    "test": "mocha './tests/**/*.spec.js'",
-    "prepublish":
-      "babel ./src --out-dir ./lib --source-maps --presets es2015,react --plugins babel-plugin-add-module-exports"
+    "test": "npm run pretty && mocha './tests/**/*.spec.js'",
+    "pretty": "prettier --single-quote --trailing-comma es5 --write \"src/**/*.js\"",
+    "prepublish": "babel ./src --out-dir ./lib --source-maps --presets es2015,react --plugins babel-plugin-add-module-exports"
   },
   "author": "",
   "license": "MIT",
@@ -14,7 +14,13 @@
     "type": "git",
     "url": "git://github.com/theolampert/react-flickity-component.git"
   },
-  "keywords": ["react", "carousel", "slider", "flickity", "react-component"],
+  "keywords": [
+    "react",
+    "carousel",
+    "slider",
+    "flickity",
+    "react-component"
+  ],
   "dependencies": {
     "fbjs": "^0.8.12",
     "flickity": "^2.0.9",
@@ -33,6 +39,7 @@
     "expect": "^1.13.4",
     "jsdom": "9.4.1",
     "mocha": "^2.5.3",
+    "prettier": "^1.6.1",
     "react-addons-test-utils": "15.0.1"
   }
 }

@@ -16,7 +16,7 @@ npm install react-flickity-component --save
 
 ```javascript
 // Commonjs
-import Flickity from 'react-flickity-component'
+const Flickity = require('flickity');
 // Or for ES2015 module
 import Flickity from 'react-flickity-component/src/index'
 
@@ -31,6 +31,7 @@ function Carousel() {
       elementType={'span'} // default 'div'
       options={flickityOptions} // takes flickity options {}
       disableImagesLoaded={false} // default false
+      reloadOnUpdate // default false
     >
       <img src="/images/placeholder.png"/>
       <img src="/images/placeholder.png"/>
@@ -39,9 +40,26 @@ function Carousel() {
   )
 }
 
+```
+#### Props:
+
+##### className={String}
+`className` applied to top level component.
+
+##### elementType={String}
+What kind of DOM element to render, defaults to 'div'
+
+##### options={Object}
+Any options you would normally initialise flickity with
+
+##### disableImagesLoaded={Boolean}
+If you want to disable images loaded
+
+##### reloadOnUpdate
+Runs flickity's `reloadCells()` on `componentDidUpdate` lifecycle method
+
 export default Carousel
 
-```
 
 #### License Information:
 Flickity may be used in commercial projects and applications with the one-time purchase of a commercial license.

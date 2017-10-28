@@ -1,5 +1,7 @@
 React Flickity Component
 =======================
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/theolampert/react-flickity-component.svg)](https://greenkeeper.io/)
 [![build status](https://travis-ci.org/theolampert/react-flickity-component.svg?branch=master)](https://travis-ci.org/theolampert/react-flickity-component/)
 [![dependencies](https://david-dm.org/theolampert/react-flickity-component.svg)](https://david-dm.org/theolampert/react-flickity-component)
 [![styled with prettier](https://img.shields.io/badge/styled_with-prettier-ff69b4.svg)](https://github.com/prettier/prettier)

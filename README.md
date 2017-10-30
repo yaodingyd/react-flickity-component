@@ -13,6 +13,8 @@ A React.js Flickity component.
 
 ```shell
 npm install react-flickity-component --save
+// Or
+yarn add react-flickity-component
 ```
 
 #### Usage:
@@ -31,7 +33,7 @@ function Carousel() {
   return (
     <Flickity
       className={'carousel'} // default ''
-      elementType={'span'} // default 'div'
+      elementType={'div'} // default 'div'
       options={flickityOptions} // takes flickity options {}
       disableImagesLoaded={false} // default false
       reloadOnUpdate // default false
@@ -44,6 +46,15 @@ function Carousel() {
 }
 
 ```
+#### Example usage:
+The examples folder contains an example use with create-react-app.
+
+```
+cd examples/react-flickity
+yarn
+yarn start
+```
+
 #### Props:
 
 ##### className={String}

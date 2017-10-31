@@ -3,8 +3,10 @@
   "version": "1.1.2",
   "description": "react flickity component",
   "main": "./lib/index.js",
+  "module": "./src/index",
+  "jsnext:main": "./src/index",
   "scripts": {
-    "test": "npm run pretty && jest",
+    "test": "npm run pretty && jest ./__tests__",
     "pretty": "prettier --single-quote --trailing-comma es5 --write \"src/**/*.js\"",
     "prepublish": "babel ./src --out-dir ./lib --source-maps"
   },

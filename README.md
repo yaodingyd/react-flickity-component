@@ -67,9 +67,9 @@ yarn start
 | `flickityRef`        | `Function` |         | like `ref` function, get Flickity instance in parent component|
 
 
-### Use Flickity's API and events
+#### Use Flickity's API and events
 
-You can access Flickity instance with `flicktityRef` prop like `ref`, and use this instance to register events and use API.
+You can access Flickity instance with `flickityRef` prop just like `ref`, and use this instance to register events and use API.
 
 ```javascript
 

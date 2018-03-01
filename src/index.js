@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { createPortal } from 'react-dom';
 import Flickity from 'flickity';
 import imagesloaded from 'imagesloaded';
 import { canUseDOM } from 'fbjs/lib/ExecutionEnvironment';
@@ -9,34 +10,27 @@ class FlickityComponent extends Component {
     super(props);
 
     this.state = {
-      selectedIndex: 0,
+      flickityReady: false,
     };
 
     this.carousel = null;
     this.flkty = null;
-    this.updateSelected = this.updateSelected.bind(this);
     this.imagesLoaded = this.imagesLoaded.bind(this);
   }
 
-  updateSelected() {
-    const index = this.flkty.selectedIndex;
-    this.setState({
-      selectedIndex: index,
-    });
-    if (this.props.onSwipe) {
-      this.props.onSwipe(index);
-    }
-  }
-
-  componentDidUpdate() {
-    if (this.props.reloadOnUpdate) {
+  componentDidUpdate(prevProps, prevState) {
+    if (
+      this.props.reloadOnUpdate ||
+      (!prevState.flickityReady && this.state.flickityReady)
+    ) {
       this.flkty.reloadCells();
+      this.flkty.resize();
     }
+    this.imagesLoaded();
   }
 
   componentWillUnmount() {
     if (this.flkty) {
-      this.flkty.off('cellSelect', this.updateSelected);
       this.flkty.destroy();
     }
   }
@@ -56,8 +50,20 @@ class FlickityComponent extends Component {
     const carousel = this.carousel;
     if (canUseDOM) {
       this.flkty = new Flickity(carousel, this.props.options);
-      this.flkty.on('cellSelect', this.updateSelected);
-      this.imagesLoaded();
+      this.setState({ flickityReady: true });
+      if (this.props.flickityRef) {
+        this.props.flickityRef(this.flkty);
+      }
+    }
+  }
+
+  renderPortal() {
+    if (!this.carousel) {
+      return null;
+    }
+    const mountNode = this.carousel.querySelector('.flickity-slider');
+    if (mountNode) {
+      return createPortal(this.props.children, mountNode);
     }
   }
 
@@ -70,7 +76,7 @@ class FlickityComponent extends Component {
           this.carousel = c;
         },
       },
-      this.props.children
+      this.renderPortal()
     );
   }
 }
@@ -82,7 +88,7 @@ FlickityComponent.propTypes = {
   className: PropTypes.string,
   elementType: PropTypes.string,
   children: PropTypes.array,
-  onSwipe: PropTypes.func,
+  flickityRef: PropTypes.func,
 };
 
 FlickityComponent.defaultProps = {

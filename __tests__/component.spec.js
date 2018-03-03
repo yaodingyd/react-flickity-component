@@ -1,6 +1,6 @@
 import React from 'react';
 import Enzyme, { mount } from 'enzyme';
-import Flickity from 'react-flickity-component/src/index';
+import Flickity from '../src';
 import Adapter from 'enzyme-adapter-react-16';
 import sinon from 'sinon';
 
@@ -14,7 +14,7 @@ it('Calls render and componentDidMount', () => {
   const flickity = mount(<Flickity/>);
 
   expect(Flickity.prototype.componentDidMount.calledOnce).toEqual(true);
-  expect(Flickity.prototype.render.calledOnce).toEqual(true);
+  expect(Flickity.prototype.render.called).toEqual(true);
 });
 
 it('Consumes all flickity options', () => {
@@ -68,6 +68,6 @@ it('Renders children', () => {
     </Flickity>
     );
 
-  const children = flickity.find('img');
+  const children = flickity.instance().props.children;
   expect(children.length).toEqual(3);
 });

@@ -23,7 +23,7 @@ yarn add react-flickity-component
 // Commonjs
 const Flickity = require('flickity');
 // Or for ES2015 module
-import Flickity from 'react-flickity-component/src/index'
+import Flickity from 'react-flickity-component'
 
 const flickityOptions = {
     initialIndex: 2
@@ -57,22 +57,50 @@ yarn start
 
 #### Props:
 
-##### className={String}
-`className` applied to top level component.
+| Property             | Type       | Default | Description                                                   |
+| -------------------- | -----------| --------|---------------------------------------------------------------|
+| `className`          | `String`   | `''`    | Applied to top level wrapper                                  |
+| `elementType`        | `String`   | `'div'` | Wrapper's element type                                        |
+| `options`            | `Object`   | `{}`    | Flickity initialization opions                                |
+| `disableImagesLoaded`| `Boolean`  | `false` | Disable call `reloadCells` images are loaded                  |
+| `reloadOnUpdate`     | `Boolean`  | `false` | Run `reloadCells` and `resize` on `componentDidUpdate`        |
+| `flickityRef`        | `Function` |         | like `ref` function, get Flickity instance in parent component|
 
-##### elementType={String}
-What kind of DOM element to render, defaults to 'div'
 
-##### options={Object}
-Any options you would normally initialise flickity with
+#### Use Flickity's API and events
 
-##### disableImagesLoaded={Boolean}
-If you want to disable images loaded
+You can access Flickity instance with `flickityRef` prop just like `ref`, and use this instance to register events and use API.
 
-##### reloadOnUpdate
-Runs flickity's `reloadCells()` on `componentDidUpdate` lifecycle method
+```javascript
 
-export default Carousel
+
+class Carousel extends React.Component {
+
+  componentDidMount = () => {
+    // You can register events in componentDidMount hook
+    this.flkty.on('settle', () => {
+      console.log(`current index is ${this.flkty.selectedIndex}`)
+    })
+  }
+
+  myCustomNext = () => {
+    // You can use Flickity API
+    this.flkty.next()
+  }
+
+  render() {
+    return (
+      <Flickity flickityRef={c => this.flkty = c}>
+        <img src="/images/placeholder.png"/>
+        <img src="/images/placeholder.png"/>
+        <img src="/images/placeholder.png"/>
+      </Flickity>
+      <Button onClick={myCustomNext}>My custom next button</Button>
+    )
+  }
+}
+
+```
 
 
 #### License Information:

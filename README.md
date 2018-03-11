@@ -104,5 +104,7 @@ class Carousel extends React.Component {
 
 
 #### License Information:
+[GPLv3](https://www.gnu.org/licenses/gpl-3.0.html)
+
 Flickity may be used in commercial projects and applications with the one-time purchase of a commercial license.
 http://flickity.metafizzy.co/license.html

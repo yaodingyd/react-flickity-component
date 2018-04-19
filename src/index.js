@@ -30,7 +30,8 @@ class FlickityComponent extends Component {
   }
 
   componentWillUnmount() {
-    if (this.flkty) {
+    const { destroyOnUnmount = true } = this.props;
+    if (destroyOnUnmount && this.flkty) {
       this.flkty.destroy();
     }
   }

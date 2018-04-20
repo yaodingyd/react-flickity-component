@@ -29,12 +29,6 @@ class FlickityComponent extends Component {
     this.imagesLoaded();
   }
 
-  componentWillUnmount() {
-    if (this.flkty) {
-      this.flkty.destroy();
-    }
-  }
-
   imagesLoaded() {
     if (!this.props.disableImagesLoaded && canUseDOM) {
       imagesloaded(

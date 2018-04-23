@@ -43,6 +43,7 @@ class FlickityComponent extends Component {
   componentDidMount() {
     const carousel = this.carousel;
     if (canUseDOM) {
+      require('flickity-bg-lazyload');
       this.flkty = new Flickity(carousel, this.props.options);
       this.setState({ flickityReady: true });
       if (this.props.flickityRef) {

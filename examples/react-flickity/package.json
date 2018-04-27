@@ -5,8 +5,8 @@
   "dependencies": {
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
-    "react-flickity-component": "^1.1.1",
-    "react-scripts": "1.0.14"
+    "react-flickity-component": "^3.0.2",
+    "react-scripts": "^1.1.4"
   },
   "scripts": {
     "start": "react-scripts start",

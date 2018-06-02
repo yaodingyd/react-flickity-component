@@ -23,8 +23,18 @@ class FlickityComponent extends Component {
       this.props.reloadOnUpdate ||
       (!prevState.flickityReady && this.state.flickityReady)
     ) {
-      this.flkty.reloadCells();
-      this.flkty.resize();
+      this.flkty.deactivate();
+      this.flkty.selectedIndex = this.props.options.initialIndex || 0;
+      this.flkty.options.draggable =
+        this.props.options.draggable === undefined
+          ? this.props.children.length > 1
+          : this.props.options.draggable;
+      imagesloaded(
+        this.carousel,
+        function(instance) {
+          this.flkty.activate();
+        }.bind(this)
+      );
     }
     this.imagesLoaded();
   }

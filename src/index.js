@@ -27,7 +27,9 @@ class FlickityComponent extends Component {
       this.flkty.selectedIndex = this.props.options.initialIndex || 0;
       this.flkty.options.draggable =
         this.props.options.draggable === undefined
-          ? this.props.children.length > 1
+          ? this.props.children
+            ? this.props.children.length > 1
+            : false
           : this.props.options.draggable;
       imagesloaded(
         this.carousel,

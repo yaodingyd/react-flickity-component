@@ -36,7 +36,7 @@
     "babel-plugin-add-module-exports": "^0.3.0",
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
-    "enzyme": "^3.3.0",
+    "enzyme": "^3.4.4",
     "enzyme-adapter-react-16": "^1.0.2",
     "jest": "^22.4.3",
     "prettier": "^1.12.1",

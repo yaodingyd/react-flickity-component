@@ -40,7 +40,7 @@ class FlickityComponent extends Component {
       if (!disableImagesLoaded) {
         imagesloaded(
           this.carousel,
-          function(instance) {
+          function() {
             this.flkty.activate();
           }.bind(this)
         );
@@ -50,7 +50,7 @@ class FlickityComponent extends Component {
     } else if (!disableImagesLoaded && canUseDOM) {
       imagesloaded(
         this.carousel,
-        function(instance) {
+        function() {
           this.flkty.reloadCells();
         }.bind(this)
       );

@@ -15,51 +15,57 @@ class FlickityComponent extends Component {
 
     this.carousel = null;
     this.flkty = null;
-    this.imagesLoaded = this.imagesLoaded.bind(this);
   }
 
   componentDidUpdate(prevProps, prevState) {
+    const {
+      children,
+      disableImagesLoaded,
+      options: { draggable, initialIndex },
+      reloadOnUpdate,
+    } = this.props;
+
     if (
-      this.props.reloadOnUpdate ||
+      reloadOnUpdate ||
       (!prevState.flickityReady && this.state.flickityReady)
     ) {
       this.flkty.deactivate();
-      this.flkty.selectedIndex = this.props.options.initialIndex || 0;
+      this.flkty.selectedIndex = initialIndex || 0;
       this.flkty.options.draggable =
-        this.props.options.draggable === undefined
-          ? this.props.children
-            ? this.props.children.length > 1
+        draggable === undefined
+          ? children
+            ? children.length > 1
             : false
-          : this.props.options.draggable;
-      imagesloaded(
-        this.carousel,
-        function(instance) {
-          this.flkty.activate();
-        }.bind(this)
-      );
-    }
-    this.imagesLoaded();
-  }
-
-  imagesLoaded() {
-    if (!this.props.disableImagesLoaded && canUseDOM) {
+          : draggable;
+      if (!disableImagesLoaded) {
+        imagesloaded(
+          this.carousel,
+          function(instance) {
+            this.flkty.activate();
+          }.bind(this)
+        );
+      } else {
+        this.flkty.activate();
+      }
+    } else if (!disableImagesLoaded && canUseDOM) {
       imagesloaded(
         this.carousel,
         function(instance) {
           this.flkty.reloadCells();
         }.bind(this)
       );
+    } else {
+      this.flkty.reloadCells();
     }
   }
 
   componentDidMount() {
-    const carousel = this.carousel;
     if (canUseDOM) {
-      this.flkty = new Flickity(carousel, this.props.options);
+      const { flickityRef, options } = this.props;
+      const carousel = this.carousel;
+      this.flkty = new Flickity(carousel, options);
       this.setState({ flickityReady: true });
-      if (this.props.flickityRef) {
-        this.props.flickityRef(this.flkty);
-      }
+      if (flickityRef) flickityRef(this.flkty);
     }
   }
 

@@ -20,15 +20,11 @@ class FlickityComponent extends Component {
   componentDidUpdate(prevProps, prevState) {
     const {
       children,
-      disableImagesLoaded,
       options: { draggable, initialIndex },
       reloadOnUpdate,
     } = this.props;
-
-    if (
-      reloadOnUpdate ||
-      (!prevState.flickityReady && this.state.flickityReady)
-    ) {
+    const { flickityReady } = this.state;
+    if (reloadOnUpdate || (!prevState.flickityReady && flickityReady)) {
       this.flkty.deactivate();
       this.flkty.selectedIndex = initialIndex || 0;
       this.flkty.options.draggable =
@@ -37,46 +33,27 @@ class FlickityComponent extends Component {
             ? children.length > 1
             : false
           : draggable;
-      if (!disableImagesLoaded) {
-        imagesloaded(
-          this.carousel,
-          function() {
-            this.flkty.activate();
-          }.bind(this)
-        );
-      } else {
-        this.flkty.activate();
-      }
-    } else if (!disableImagesLoaded && canUseDOM) {
-      imagesloaded(
-        this.carousel,
-        function() {
-          this.flkty.reloadCells();
-        }.bind(this)
-      );
+      this.flkty.activate();
     } else {
       this.flkty.reloadCells();
     }
   }
 
   componentDidMount() {
-    if (canUseDOM) {
-      const { flickityRef, options } = this.props;
-      const carousel = this.carousel;
-      this.flkty = new Flickity(carousel, options);
-      this.setState({ flickityReady: true });
-      if (flickityRef) flickityRef(this.flkty);
-    }
+    if (!canUseDOM) return null;
+    const { disableImagesLoaded, flickityRef, options } = this.props;
+    const carousel = this.carousel;
+    this.flkty = new Flickity(carousel, options);
+    const setFlickityToReady = () => this.setState({ flickityReady: true });
+    if (disableImagesLoaded) setFlickityToReady();
+    else imagesloaded(carousel, setFlickityToReady);
+    if (flickityRef) flickityRef(this.flkty);
   }
 
   renderPortal() {
-    if (!this.carousel) {
-      return null;
-    }
+    if (!this.carousel) return null;
     const mountNode = this.carousel.querySelector('.flickity-slider');
-    if (mountNode) {
-      return createPortal(this.props.children, mountNode);
-    }
+    if (mountNode) return createPortal(this.props.children, mountNode);
   }
 
   render() {

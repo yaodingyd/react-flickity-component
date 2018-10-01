@@ -1,6 +1,6 @@
 {
   "name": "react-flickity-component",
-  "version": "3.0.3",
+  "version": "3.1.0",
   "description": "react flickity component",
   "main": "./lib/index.js",
   "scripts": {
@@ -45,5 +45,8 @@
   "peerDependencies": {
     "react": "~16.0.0",
     "react-dom": "~16.0.0"
+  },
+  "jest": {
+    "testURL": "http://localhost/"
   }
 }

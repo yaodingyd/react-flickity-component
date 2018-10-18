@@ -44,6 +44,7 @@ class FlickityComponent extends Component {
     const carousel = this.carousel;
     if (canUseDOM) {
       this.flkty = new Flickity(carousel, this.props.options);
+      this.flkty.selectedIndex = this.props.options.initialIndex || 0;
       this.setState({ flickityReady: true });
       if (this.props.flickityRef) {
         this.props.flickityRef(this.flkty);

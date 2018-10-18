@@ -15,33 +15,35 @@ class FlickityComponent extends Component {
 
     this.carousel = null;
     this.flkty = null;
-    this.imagesLoaded = this.imagesLoaded.bind(this);
   }
 
   componentDidUpdate(prevProps, prevState) {
-    if (
-      this.props.reloadOnUpdate ||
-      (!prevState.flickityReady && this.state.flickityReady)
-    ) {
+    const {
+      children,
+      options: { draggable, initialIndex },
+      reloadOnUpdate,
+    } = this.props;
+    const { flickityReady } = this.state;
+    if (reloadOnUpdate || (!prevState.flickityReady && flickityReady)) {
+      this.flkty.deactivate();
+      this.flkty.selectedIndex = initialIndex || 0;
+      this.flkty.options.draggable =
+        draggable === undefined
+          ? children
+            ? children.length > 1
+            : false
+          : draggable;
+      this.flkty.activate();
+    } else {
       this.flkty.reloadCells();
-      this.flkty.resize();
-    }
-    this.imagesLoaded();
-  }
-
-  imagesLoaded() {
-    if (!this.props.disableImagesLoaded && canUseDOM) {
-      imagesloaded(
-        this.carousel,
-        function(instance) {
-          this.flkty.reloadCells();
-        }.bind(this)
-      );
     }
   }
 
   componentDidMount() {
+    if (!canUseDOM) return null;
+    const { disableImagesLoaded, flickityRef, options } = this.props;
     const carousel = this.carousel;
+
     if (canUseDOM) {
       this.flkty = new Flickity(carousel, this.props.options);
       this.flkty.selectedIndex = this.props.options.initialIndex || 0;
@@ -50,16 +52,13 @@ class FlickityComponent extends Component {
         this.props.flickityRef(this.flkty);
       }
     }
+
   }
 
   renderPortal() {
-    if (!this.carousel) {
-      return null;
-    }
+    if (!this.carousel) return null;
     const mountNode = this.carousel.querySelector('.flickity-slider');
-    if (mountNode) {
-      return createPortal(this.props.children, mountNode);
-    }
+    if (mountNode) return createPortal(this.props.children, mountNode);
   }
 
   render() {

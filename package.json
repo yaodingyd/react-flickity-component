@@ -48,5 +48,6 @@
   },
   "jest": {
     "testURL": "http://localhost/"
-  }
+  },
+  "typings": "./src/index.d.ts"
 }

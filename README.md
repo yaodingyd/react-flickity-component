@@ -47,7 +47,8 @@ function Carousel() {
 
 ```
 #### Example usage:
-The examples folder contains an example use with create-react-app.
+See the codesandbox here:
+https://codesandbox.io/s/qlz12m4oj6
 
 ```
 cd examples/react-flickity

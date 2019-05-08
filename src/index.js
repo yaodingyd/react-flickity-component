@@ -65,27 +65,29 @@ class FlickityComponent extends Component {
           this.carousel = c;
         },
       },
-      this.renderPortal()
+      this.props.static ? this.props.children : this.renderPortal()
     );
   }
 }
 
 FlickityComponent.propTypes = {
-  disableImagesLoaded: PropTypes.bool,
-  reloadOnUpdate: PropTypes.bool,
-  options: PropTypes.object,
-  className: PropTypes.string,
-  elementType: PropTypes.string,
   children: PropTypes.array,
+  className: PropTypes.string,
+  disableImagesLoaded: PropTypes.bool,
+  elementType: PropTypes.string,
   flickityRef: PropTypes.func,
+  options: PropTypes.object,
+  reloadOnUpdate: PropTypes.bool,
+  static: PropTypes.bool,
 };
 
 FlickityComponent.defaultProps = {
-  disableImagesLoaded: false,
-  reloadOnUpdate: false,
-  options: {},
   className: '',
+  disableImagesLoaded: false,
   elementType: 'div',
+  options: {},
+  reloadOnUpdate: false,
+  static: false,
 };
 
 export default FlickityComponent;

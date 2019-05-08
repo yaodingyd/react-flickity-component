@@ -71,3 +71,21 @@ it('Renders children', () => {
   const children = flickity.instance().props.children;
   expect(children.length).toEqual(3);
 });
+
+it('Renders a static carousel', () => {
+  const flickity = mount(
+    <Flickity
+      className={'carousel'}
+      disableImagesLoaded={false}
+      reloadOnUpdate
+      static
+    >
+      <img src="/images/placeholder.png"/>
+      <img src="/images/placeholder.png"/>
+      <img src="/images/placeholder.png"/>
+    </Flickity>
+    );
+
+  expect(flickity.find('.flickity-slider').length).toEqual(0);
+  expect(flickity.find('img').length).toEqual(3);
+})

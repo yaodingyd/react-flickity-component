@@ -37,6 +37,7 @@ function Carousel() {
       options={flickityOptions} // takes flickity options {}
       disableImagesLoaded={false} // default false
       reloadOnUpdate // default false
+      static // default false
     >
       <img src="/images/placeholder.png"/>
       <img src="/images/placeholder.png"/>
@@ -65,6 +66,8 @@ yarn start
 | `options`            | `Object`   | `{}`    | Flickity initialization opions                                |
 | `disableImagesLoaded`| `Boolean`  | `false` | Disable call `reloadCells` images are loaded                  |
 | `reloadOnUpdate`     | `Boolean`  | `false` | Run `reloadCells` and `resize` on `componentDidUpdate`        |
+| `static`             | `Boolean`  | `false` | Carousel contents are static, and not updated at runtime.     |
+                                              | Needed for smooth server-side rendering.                      |
 | `flickityRef`        | `Function` |         | like `ref` function, get Flickity instance in parent component|
 
 

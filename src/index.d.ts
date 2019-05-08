@@ -2,11 +2,12 @@ import React, { Component } from "react";
 
 interface Props {
     className?: string;
-    elementType?: string;
-    options?: FlickityOptions;
     disableImagesLoaded?: boolean;
-    reloadOnUpdate?: boolean;
+    elementType?: string;
     flickityRef?: (ref: HTMLDivElement) => void;
+    options?: FlickityOptions;
+    reloadOnUpdate?: boolean;
+    static?: boolean;
 }
 
 declare class Flickity extends React.Component<Props, any> {}
@@ -14,7 +15,7 @@ declare class Flickity extends React.Component<Props, any> {}
 export default Flickity;
 
 /**
- * @todo - Get @types/flickity to export FlickityOptions type 
+ * @todo - Get @types/flickity to export FlickityOptions type
  */
 export interface FlickityOptions {
     /**

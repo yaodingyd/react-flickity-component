@@ -48,14 +48,11 @@ function Carousel() {
 
 ```
 #### Example usage:
-See the codesandbox here:
+See a codesandbox example here:
 https://codesandbox.io/s/qlz12m4oj6
 
-```
-cd examples/react-flickity
-yarn
-yarn start
-```
+See an example in production with server side rendering [here](https://github.com/artsy/reaction/blob/master/src/Components/v2/CarouselV3.tsx#L160-L171)
+
 
 #### Props:
 
@@ -66,8 +63,7 @@ yarn start
 | `options`            | `Object`   | `{}`    | Flickity initialization opions                                |
 | `disableImagesLoaded`| `Boolean`  | `false` | Disable call `reloadCells` images are loaded                  |
 | `reloadOnUpdate`     | `Boolean`  | `false` | Run `reloadCells` and `resize` on `componentDidUpdate`        |
-| `static`             | `Boolean`  | `false` | Carousel contents are static, and not updated at runtime.     |
-                                              | Needed for smooth server-side rendering.                      |
+| `static`             | `Boolean`  | `false` | Carousel contents are static and not updated at runtime. Useful for smoother server-side rendering however the carousel contents cannot be updated dynamically.   |                                              
 | `flickityRef`        | `Function` |         | like `ref` function, get Flickity instance in parent component|
 
 

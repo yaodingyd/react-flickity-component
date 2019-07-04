@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { createPortal } from 'react-dom';
-import Flickity from 'flickity';
 import imagesloaded from 'imagesloaded';
 import { canUseDOM } from 'fbjs/lib/ExecutionEnvironment';
 import PropTypes from 'prop-types';
+const Flickity = typeof window !== "undefined" ? require('flickity') : undefined;
 
 class FlickityComponent extends Component {
   constructor(props) {

@@ -23,22 +23,22 @@
   ],
   "dependencies": {
     "fbjs": "^1.0.0",
-    "flickity": "^2.2.0",
+    "flickity": "^2.2.1",
     "imagesloaded": "^4.1.4",
     "prop-types": "^15.7.2"
   },
   "devDependencies": {
-    "@babel/cli": "^7.4.4",
-    "@babel/core": "^7.4.4",
-    "@babel/preset-env": "^7.4.4",
+    "@babel/cli": "^7.5.5",
+    "@babel/core": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
     "@babel/preset-react": "^7.0.0",
     "babel-jest": "^24.8.0",
     "babel-plugin-add-module-exports": "^1.0.2",
-    "enzyme": "^3.9.0",
-    "enzyme-adapter-react-16": "^1.12.1",
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.14.0",
     "jest": "^24.8.0",
-    "prettier": "^1.17.0",
-    "sinon": "^7.3.2"
+    "prettier": "^1.18.2",
+    "sinon": "^7.4.1"
   },
   "peerDependencies": {
     "react": "~16.0.0",

@@ -4,7 +4,7 @@ interface Props {
     className?: string;
     disableImagesLoaded?: boolean;
     elementType?: string;
-    flickityRef?: (ref: HTMLDivElement) => void;
+    flickityRef?: (ref: Flickity) => void;
     options?: FlickityOptions;
     reloadOnUpdate?: boolean;
     static?: boolean;

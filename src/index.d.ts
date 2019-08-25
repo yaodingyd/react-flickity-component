@@ -10,7 +10,31 @@ interface Props {
     static?: boolean;
 }
 
-declare class Flickity extends React.Component<Props, any> {}
+declare class Flickity extends React.Component<Props, any> {
+    public on(eventName: string, listener: Function): void;
+	public select(index: number, isWrapped?: boolean, isInstant?: boolean): void;
+	public previous(isWrapped?: boolean, isInstant?: boolean): void;
+	public next(isWrapped?: boolean, isInstant?: boolean): void;
+	public selectCell(value: number | string, isWrapped?: boolean, isInstant?: boolean): void;
+	public resize(): void;
+	public reposition(): void;
+	public prepend(elements: React.ReactNode): void;
+	public append(elements: React.ReactNode): void;
+	public insert(elements: React.ReactNode, index: number): void;
+	public remove(elements: React.ReactNode): void;
+	public playPlayer(): void;
+	public stopPlayer(): void;
+	public pausePlayer(): void;
+	public unpausePlayer(): void;
+	public destroy(): void;
+	public reloadCells(): void;
+	public getCellElements(): React.ReactNodeARRAY;
+	public selectedIndex: number;
+	public selectedElement: React.ReactNode;
+	public selectedElements: React.ReactNodeArray;
+	public cells: React.ReactNodeArray;
+	public slides: React.ReactNodeArray;
+}
 
 export default Flickity;
 

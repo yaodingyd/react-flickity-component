@@ -1,12 +1,13 @@
 {
   "name": "react-flickity-component",
-  "version": "3.3.1",
+  "version": "3.3.2",
   "description": "react flickity component",
   "main": "./lib/index.js",
   "scripts": {
     "test": "npm run pretty && jest ./__tests__",
     "pretty": "prettier --single-quote --trailing-comma es5 --write \"src/**/*.js\"",
-    "prepublishOnly": "babel ./src --out-dir ./lib --source-maps"
+    "prepublishOnly": "babel ./src --out-dir ./lib --source-maps",
+    "develop": "babel ./src --out-dir ./lib --source-maps --watch"
   },
   "author": "theolampert",
   "license": "GPL3",

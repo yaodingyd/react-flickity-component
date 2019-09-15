@@ -43,7 +43,6 @@ class FlickityComponent extends Component {
     const { disableImagesLoaded, flickityRef, options } = this.props;
     const carousel = this.carousel;
     const Flickity = require('flickity');
-
     this.flkty = new Flickity(carousel, options);
     const setFlickityToReady = () => this.setState({ flickityReady: true });
     if (disableImagesLoaded) setFlickityToReady();

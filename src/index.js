@@ -10,6 +10,7 @@ class FlickityComponent extends Component {
 
     this.state = {
       flickityReady: false,
+      flickityCreated: false,
     };
 
     this.carousel = null;
@@ -40,20 +41,32 @@ class FlickityComponent extends Component {
 
   componentDidMount() {
     if (!canUseDOM) return null;
-    const { disableImagesLoaded, flickityRef, options } = this.props;
-    const carousel = this.carousel;
     const Flickity = require('flickity');
-    this.flkty = new Flickity(carousel, options);
-    const setFlickityToReady = () => this.setState({ flickityReady: true });
-    if (disableImagesLoaded) setFlickityToReady();
-    else imagesloaded(carousel, setFlickityToReady);
+    const { flickityRef, options } = this.props;
+    this.flkty = new Flickity(this.carousel, options);
     if (flickityRef) flickityRef(this.flkty);
+    if (this.props.static) {
+      this.setReady();
+    } else {
+      this.setState({ flickityCreated: true });
+    }
+  }
+
+  setReady() {
+    const setFlickityToReady = () => this.setState({ flickityReady: true });
+    if (this.props.disableImagesLoaded) setFlickityToReady();
+    else imagesloaded(this.carousel, setFlickityToReady);
   }
 
   renderPortal() {
     if (!this.carousel) return null;
     const mountNode = this.carousel.querySelector('.flickity-slider');
-    if (mountNode) return createPortal(this.props.children, mountNode);
+    console.log(mountNode)
+    if (mountNode) {
+      const element = createPortal(this.props.children, mountNode);
+      this.setReady();
+      return element;
+    }
   }
 
   render() {

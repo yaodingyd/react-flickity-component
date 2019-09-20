@@ -61,7 +61,6 @@ class FlickityComponent extends Component {
   renderPortal() {
     if (!this.carousel) return null;
     const mountNode = this.carousel.querySelector('.flickity-slider');
-    console.log(mountNode)
     if (mountNode) {
       const element = createPortal(this.props.children, mountNode);
       this.setReady();

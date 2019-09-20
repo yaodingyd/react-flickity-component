@@ -28,12 +28,15 @@ declare class Flickity extends React.Component<Props, any> {
 	public unpausePlayer(): void;
 	public destroy(): void;
 	public reloadCells(): void;
-	public getCellElements(): React.ReactNodeARRAY;
+	public getCellElements(): React.ReactNode;
 	public selectedIndex: number;
 	public selectedElement: React.ReactNode;
-	public selectedElements: React.ReactNodeArray;
-	public cells: React.ReactNodeArray;
-	public slides: React.ReactNodeArray;
+	public selectedElements: React.ReactNode;
+	public cells: React.ReactNode;
+	public slides: React.ReactNode;
+	public viewFullscreen(): void;
+	public exitFullscreen(): void;
+	public toggleFullscreen(): void;
 }
 
 export default Flickity;

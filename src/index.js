@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { createPortal } from 'react-dom';
-import Flickity from 'flickity';
 import imagesloaded from 'imagesloaded';
 import { canUseDOM } from 'fbjs/lib/ExecutionEnvironment';
 import PropTypes from 'prop-types';
@@ -43,6 +42,7 @@ class FlickityComponent extends Component {
     if (!canUseDOM) return null;
     const { disableImagesLoaded, flickityRef, options } = this.props;
     const carousel = this.carousel;
+    const Flickity = require('flickity');
     this.flkty = new Flickity(carousel, options);
     const setFlickityToReady = () => this.setState({ flickityReady: true });
     if (disableImagesLoaded) setFlickityToReady();

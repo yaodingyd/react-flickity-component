@@ -11,6 +11,7 @@ class FlickityComponent extends Component {
     this.state = {
       flickityReady: false,
       flickityCreated: false,
+      cellCount: 0,
     };
 
     this.carousel = null;
@@ -53,6 +54,7 @@ class FlickityComponent extends Component {
   }
 
   setReady() {
+    if (this.state.flickityReady) return;
     const setFlickityToReady = () => this.setState({ flickityReady: true });
     if (this.props.disableImagesLoaded) setFlickityToReady();
     else imagesloaded(this.carousel, setFlickityToReady);
@@ -63,7 +65,10 @@ class FlickityComponent extends Component {
     const mountNode = this.carousel.querySelector('.flickity-slider');
     if (mountNode) {
       const element = createPortal(this.props.children, mountNode);
-      this.setReady();
+      setTimeout(() => this.setReady(), 0);
+      const cellCount = React.Children.count(this.props.children);
+      if (cellCount !== this.state.cellCount)
+        this.setState({ flickityReady: false, cellCount });
       return element;
     }
   }

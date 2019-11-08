@@ -11,7 +11,7 @@ interface Props {
 }
 
 declare class Flickity extends React.Component<Props, any> {
-        public on(eventName: string, listener: Function): void;
+    public on(eventName: string, listener: Function): void;
 	public off(eventName: string, listener: Function): void;
 	public select(index: number, isWrapped?: boolean, isInstant?: boolean): void;
 	public previous(isWrapped?: boolean, isInstant?: boolean): void;

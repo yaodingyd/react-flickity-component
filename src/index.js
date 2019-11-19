@@ -30,6 +30,7 @@ class FlickityComponent extends Component {
       children,
       options: { draggable, initialIndex },
       reloadOnUpdate,
+      disableImagesLoaded,
     } = this.props;
     const { flickityReady } = this.state;
     if (reloadOnUpdate || (!prevState.flickityReady && flickityReady)) {
@@ -42,6 +43,11 @@ class FlickityComponent extends Component {
             : false
           : draggable;
       this.flkty.activate();
+      if (!disableImagesLoaded && this.carousel) {
+        imagesloaded(this.carousel, () => {
+          this.flkty.reloadCells();
+        });
+      }
     } else {
       this.flkty.reloadCells();
     }

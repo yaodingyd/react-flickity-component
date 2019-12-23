@@ -21,7 +21,7 @@ class FlickityComponent extends Component {
   static getDerivedStateFromProps(props, state) {
     const cellCount = React.Children.count(props.children);
     if (cellCount !== state.cellCount)
-      return ({ flickityReady: false, cellCount });
+      return { flickityReady: false, cellCount };
     return null;
   }
 

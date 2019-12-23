@@ -18,6 +18,13 @@ class FlickityComponent extends Component {
     this.flkty = null;
   }
 
+  static getDerivedStateFromProps(props, state) {
+    const cellCount = React.Children.count(props.children);
+    if (cellCount !== state.cellCount)
+      return ({ flickityReady: false, cellCount });
+    return null;
+  }
+
   componentDidUpdate(prevProps, prevState) {
     const {
       children,
@@ -66,9 +73,6 @@ class FlickityComponent extends Component {
     if (mountNode) {
       const element = createPortal(this.props.children, mountNode);
       setTimeout(() => this.setReady(), 0);
-      const cellCount = React.Children.count(this.props.children);
-      if (cellCount !== this.state.cellCount)
-        this.setState({ flickityReady: false, cellCount });
       return element;
     }
   }

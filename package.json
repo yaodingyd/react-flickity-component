@@ -24,7 +24,6 @@
   ],
   "dependencies": {
     "fbjs": "^1.0.0",
-    "flickity": "^2.2.1",
     "imagesloaded": "^4.1.4",
     "prop-types": "^15.7.2"
   },
@@ -42,8 +41,9 @@
     "sinon": "^7.4.1"
   },
   "peerDependencies": {
-    "react": "^16.0.0",
-    "react-dom": "^16.0.0"
+    "flickity": "^2.2.1",
+    "react": "^16.3.0",
+    "react-dom": "^16.3.0"
   },
   "jest": {
     "testURL": "http://localhost/"

@@ -36,7 +36,7 @@
     "babel-plugin-add-module-exports": "^1.0.2",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.14.0",
-    "flickity": "^2.2.1",
+    "flickity-fade": "^1.0.0",
     "jest": "^24.8.0",
     "prettier": "^1.18.2",
     "react": "^16.12.0",

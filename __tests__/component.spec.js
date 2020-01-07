@@ -73,27 +73,6 @@ it('Renders children', () => {
   expect(children.length).toEqual(3);
 });
 
-it('Renders with fade', () => {
-
-  const flickity = mount(
-    <Flickity
-      className={'carousel'}
-      options={{
-        fade: true
-      }}
-      disableImagesLoaded={false}
-      reloadOnUpdate
-    >
-      <img src="/images/placeholder.png"/>
-      <img src="/images/placeholder.png"/>
-      <img src="/images/placeholder.png"/>
-    </Flickity>
-    );
-
-  const children = flickity.instance().props.children;
-  expect(children.length).toEqual(3);
-});
-
 it('Renders a static carousel', () => {
   const flickity = mount(
     <Flickity

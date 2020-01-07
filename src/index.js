@@ -49,7 +49,7 @@ class FlickityComponent extends Component {
 
   componentDidMount() {
     if (!canUseDOM) return null;
-    const Flickity = require('flickity');
+    const Flickity = require('flickity-fade');
     const { flickityRef, options } = this.props;
     this.flkty = new Flickity(this.carousel, options);
     if (flickityRef) flickityRef(this.flkty);

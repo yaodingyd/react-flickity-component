@@ -38,6 +38,7 @@ it('Consumes all flickity options', () => {
       arrowShape: { x0: 20, x1: 60, y1: 50, x2: 70, y2: 40, x3: 10 },
       pageDots: false,
       pauseAutoPlayOnHover: false,
+      fade: false,
     }
 
   const flickity = mount(
@@ -59,6 +60,27 @@ it('Renders children', () => {
   const flickity = mount(
     <Flickity
       className={'carousel'}
+      disableImagesLoaded={false}
+      reloadOnUpdate
+    >
+      <img src="/images/placeholder.png"/>
+      <img src="/images/placeholder.png"/>
+      <img src="/images/placeholder.png"/>
+    </Flickity>
+    );
+
+  const children = flickity.instance().props.children;
+  expect(children.length).toEqual(3);
+});
+
+it('Renders with fade', () => {
+
+  const flickity = mount(
+    <Flickity
+      className={'carousel'}
+      options={{
+        fade: true
+      }}
       disableImagesLoaded={false}
       reloadOnUpdate
     >

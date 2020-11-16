@@ -94,7 +94,7 @@ class FlickityComponent extends Component {
       this.props.elementType,
       {
         className: this.props.className,
-        ref: c => {
+        ref: (c) => {
           this.carousel = c;
         },
       },

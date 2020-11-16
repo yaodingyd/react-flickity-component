@@ -34,7 +34,7 @@ class FlickityComponent extends Component {
     } = this.props;
     const { flickityReady } = this.state;
     if (reloadOnUpdate || (!prevState.flickityReady && flickityReady)) {
-      const isActive =  this.flkty.isActive;
+      const isActive = this.flkty.isActive;
       this.flkty.deactivate();
       this.flkty.selectedIndex = initialIndex || 0;
       this.flkty.options.draggable =

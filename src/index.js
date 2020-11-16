@@ -34,6 +34,7 @@ class FlickityComponent extends Component {
     } = this.props;
     const { flickityReady } = this.state;
     if (reloadOnUpdate || (!prevState.flickityReady && flickityReady)) {
+      const isActive =  this.flkty.isActive;
       this.flkty.deactivate();
       this.flkty.selectedIndex = initialIndex || 0;
       this.flkty.options.draggable =
@@ -42,7 +43,7 @@ class FlickityComponent extends Component {
             ? children.length > 1
             : false
           : draggable;
-      this.flkty.activate();
+      if (isActive) this.flkty.activate();
       if (!disableImagesLoaded && this.carousel) {
         imagesloaded(this.carousel, () => {
           this.flkty.reloadCells();

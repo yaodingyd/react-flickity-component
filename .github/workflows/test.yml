@@ -15,5 +15,4 @@ jobs:
           node-version: 14
       - run: npm i
       - run: npm i react@16 react-dom@16 flickity
-      - run: npm ls
       - run: npm test

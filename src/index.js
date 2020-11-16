@@ -1,8 +1,13 @@
 import React, { Component } from 'react';
 import { createPortal } from 'react-dom';
 import imagesloaded from 'imagesloaded';
-import { canUseDOM } from 'fbjs/lib/ExecutionEnvironment';
 import PropTypes from 'prop-types';
+
+const canUseDOM = !!(
+  typeof window !== 'undefined' &&
+  window.document &&
+  window.document.createElement
+);
 
 class FlickityComponent extends Component {
   constructor(props) {

@@ -4,7 +4,7 @@
   "description": "react flickity component",
   "main": "./lib/index.js",
   "scripts": {
-    "test": "npm run pretty && jest ./__tests__",
+    "test": "npm run pretty && jest ./__tests__ --no-watchman",
     "pretty": "prettier --single-quote --trailing-comma es5 --write \"src/**/*.js\"",
     "prepublishOnly": "babel ./src --out-dir ./lib --source-maps",
     "dev": "npm run prepublishOnly -- --watch"
@@ -23,7 +23,6 @@
     "react-component"
   ],
   "dependencies": {
-    "fbjs": "^1.0.0",
     "imagesloaded": "^4.1.4",
     "prop-types": "^15.7.2"
   },

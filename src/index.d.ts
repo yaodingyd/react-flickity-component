@@ -34,7 +34,7 @@ declare class Flickity extends React.Component<Props, any> {
   public selectedElement: React.ReactNode;
   public selectedElements: React.ReactNode;
   public cells: React.ReactNode;
-  public slides: React.ReactNode;
+  public slides: React.ReactNode[];
   public viewFullscreen(): void;
   public exitFullscreen(): void;
   public toggleFullscreen(): void;

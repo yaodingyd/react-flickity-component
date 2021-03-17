@@ -11,8 +11,8 @@ interface Props {
 }
 
 declare class Flickity extends React.Component<Props, any> {
-  public on(eventName: string, listener: Function): void;
-  public off(eventName: string, listener: Function): void;
+  public on(eventName: FlickityEventName, listener: Function): void;
+  public off(eventName: FlickityEventName, listener: Function): void;
   public select(index: number, isWrapped?: boolean, isInstant?: boolean): void;
   public previous(isWrapped?: boolean, isInstant?: boolean): void;
   public next(isWrapped?: boolean, isInstant?: boolean): void;
@@ -240,3 +240,23 @@ export interface FlickityOptions {
      */
     arrowShape?: string | { x0: number, x1: number, y1: number, x2: number, y2: number, x3: number };
 }
+
+
+/**
+ * change: Triggered when the selected slide is changed.
+ * select: Triggered when a slide is selected.
+ * settle: Triggered when the slider is settled at its end position.
+ * scroll: Triggered when the slider moves.
+ * dragStart: Triggered when dragging starts and the slider starts moving.
+ * dragMove: Triggered when dragging moves and the slider moves.
+ * dragEnd: Triggered when dragging ends.
+ * pointerMove: Triggered when the user's pointer moves.
+ * pointerUp: Triggered when the user's pointer unpresses.
+ * staticClick: Triggered when the user's pointer is pressed and unpressed and has not moved enough to start dragging.
+ * lazyLoad: Triggered after an image has been loaded with lazyLoad.
+ * bgLazyLoad: Triggered after a background image has been loaded with bgLazyLoad.
+ * fullscreenChange: Triggered after entering or exiting fullscreen view.
+ */
+export type FlickityEventName = 'change' | 'select' | 'settle' | 'scroll' |'dragStart'
+    | 'dragMove' | 'dragEnd' | 'pointerDown' | 'pointerMove' | 'pointerUp' 
+    | 'staticClick' | 'lazyLoad' | 'bgLazyLoad' | 'fullscreenChange'

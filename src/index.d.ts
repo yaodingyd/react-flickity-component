@@ -173,6 +173,13 @@ export interface FlickityOptions {
     autoPlay?: boolean | number;
 
     /**
+     * Auto-playing will pause when the user hovers over the carousel.
+     * 
+     * default: false
+     */
+     pauseAutoPlayOnHover?:boolean;
+
+    /**
      * Changes height of carousel to fit height of selected slide.
      */
     adaptiveHeight?: boolean;

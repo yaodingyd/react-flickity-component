@@ -19,7 +19,7 @@ yarn add react-flickity-component
 
 ```javascript
 // Commonjs
-const Flickity = require('flickity');
+const Flickity = require('react-flickity-component');
 // Or for ES2015 module
 import Flickity from 'react-flickity-component'
 

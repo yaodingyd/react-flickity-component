@@ -10,9 +10,9 @@ A React.js Flickity component.
 # Install:
 
 ```shell
-npm install react-flickity-component --save
-// Or
-yarn add react-flickity-component
+# you need to install flickity as peer dependency
+npm install flickity
+npm install react-flickity-component
 ```
 
 # Usage:

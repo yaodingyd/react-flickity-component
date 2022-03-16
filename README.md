@@ -10,8 +10,8 @@ A React.js Flickity component.
 # Install:
 
 ```shell
-# you need to install flickity as peer dependency
-npm install flickity
+# you need to install flickity as peer dependency, please use v2.3.0 for best experience
+npm install flickity@2.3.0
 npm install react-flickity-component
 ```
 

@@ -8,6 +8,7 @@ interface Props {
   options?: FlickityOptions;
   reloadOnUpdate?: boolean;
   static?: boolean;
+  children?: React.ReactNode;
 }
 
 declare class Flickity extends React.Component<Props, any> {

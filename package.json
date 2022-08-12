@@ -1,6 +1,6 @@
 {
   "name": "react-flickity-component",
-  "version": "3.6.2",
+  "version": "3.6.3",
   "description": "react flickity component",
   "main": "./lib/index.js",
   "scripts": {
@@ -13,7 +13,7 @@
   "license": "GPL3",
   "repository": {
     "type": "git",
-    "url": "git://github.com/theolampert/react-flickity-component.git"
+    "url": "git://github.com/yaodingyd/react-flickity-component.git"
   },
   "keywords": [
     "react",

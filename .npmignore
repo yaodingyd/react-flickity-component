@@ -1,3 +1,10 @@
 /node_modules
-/test.js
-examples
+/__tests__
+/examples
+/docs
+/src
+/.github
+index.html
+build.js
+build-doc.js
+vite.config.js

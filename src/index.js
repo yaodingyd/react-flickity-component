@@ -39,6 +39,7 @@ class FlickityComponent extends Component {
     } = this.props;
     const { flickityReady } = this.state;
     if (reloadOnUpdate || (!prevState.flickityReady && flickityReady)) {
+      if (!this.flkty) return;
       const isActive = this.flkty.isActive;
       this.flkty.deactivate();
       this.flkty.selectedIndex = initialIndex || 0;
@@ -59,9 +60,9 @@ class FlickityComponent extends Component {
     }
   }
 
-  componentDidMount() {
+  async componentDidMount() {
     if (!canUseDOM) return null;
-    const Flickity = require('flickity');
+    const Flickity = (await import('flickity')).default;
     const { flickityRef, options } = this.props;
     this.flkty = new Flickity(this.carousel, options);
     if (flickityRef) flickityRef(this.flkty);

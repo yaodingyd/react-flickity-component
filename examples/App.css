@@ -1,0 +1,8 @@
+.carousel {
+  height: 300px;
+}
+
+.carousel-image {
+  min-width: 150px;
+  height: 200px;
+}

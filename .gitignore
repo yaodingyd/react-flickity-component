@@ -43,3 +43,5 @@ Thumbs.db
 # Custom #
 ##########
 /node_modules
+/docs
+/dist

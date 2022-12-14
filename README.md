@@ -1,7 +1,6 @@
 React Flickity Component
 =======================
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/theolampert/react-flickity-component.svg)](https://greenkeeper.io/)
 [![styled with prettier](https://img.shields.io/badge/styled_with-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
 
 # Introduction:
@@ -16,6 +15,10 @@ npm install react-flickity-component
 ```
 
 # Usage:
+
+## V4 Updates
+V4 only supports react v18 and above. V4 also comes with an esmodule bundle format to support modern frontend tooling like vite.
+If you are staying on react v16, please keep using v3. 
 
 ```javascript
 // Commonjs

@@ -15,11 +15,13 @@ const __dirname = fileURLToPath(new URL('.', import.meta.url))
         fileName: (format) => `react-flickity-component.${format}.js`,
       },
       rollupOptions: {
-        external: ['react', 'react-dom'],
+        external: ['react', 'react-dom', 'imagesloaded', 'prop-types', 'flickity'],        
         output: {
           globals: {
             react: 'React',
             'react-dom': 'ReactDOM',
+            imagesloaded: 'imagesloaded',
+            'prop-types': 'PropTypes',
           },
         },
       },

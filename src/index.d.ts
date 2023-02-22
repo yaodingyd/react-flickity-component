@@ -251,6 +251,7 @@ export interface FlickityOptions {
 
 
 /**
+ * ready: Triggered after Flickity has been activated.
  * change: Triggered when the selected slide is changed.
  * select: Triggered when a slide is selected.
  * settle: Triggered when the slider is settled at its end position.
@@ -265,6 +266,6 @@ export interface FlickityOptions {
  * bgLazyLoad: Triggered after a background image has been loaded with bgLazyLoad.
  * fullscreenChange: Triggered after entering or exiting fullscreen view.
  */
-export type FlickityEventName = 'change' | 'select' | 'settle' | 'scroll' |'dragStart'
+export type FlickityEventName = 'ready' | 'change' | 'select' | 'settle' | 'scroll' |'dragStart'
     | 'dragMove' | 'dragEnd' | 'pointerDown' | 'pointerMove' | 'pointerUp' 
     | 'staticClick' | 'lazyLoad' | 'bgLazyLoad' | 'fullscreenChange'

@@ -1,9 +1,10 @@
 {
   "name": "react-flickity-component",
-  "version": "4.0.2",
+  "version": "4.0.3",
   "description": "react flickity component",
   "files": [
-    "dist"
+    "dist",
+    "src/index.d.ts"
   ],
   "main": "./dist/react-flickity-component.umd.js",
   "module": "./dist/react-flickity-component.es.js",

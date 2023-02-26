@@ -55,9 +55,9 @@ export interface FlickityOptions {
     cellSelector?: string;
 
     /**
-     * Zero-based index of the initial selected cell.
+     * Zero-based index or selector string of the initial selected cell.
      */
-    initialIndex?: number;
+    initialIndex?: number | string | undefined;
 
     /**
      * Enable keyboard navigation. Users can tab to a Flickity gallery, and pressing left & right keys to change cells.

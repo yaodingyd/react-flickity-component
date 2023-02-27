@@ -57,7 +57,7 @@ export interface FlickityOptions {
     /**
      * Zero-based index or selector string of the initial selected cell.
      */
-    initialIndex?: number | string | undefined;
+    initialIndex?: number | string;
 
     /**
      * Enable keyboard navigation. Users can tab to a Flickity gallery, and pressing left & right keys to change cells.
@@ -178,7 +178,7 @@ export interface FlickityOptions {
      * 
      * default: false
      */
-     pauseAutoPlayOnHover?:boolean;
+     pauseAutoPlayOnHover?: boolean;
 
     /**
      * Changes height of carousel to fit height of selected slide.

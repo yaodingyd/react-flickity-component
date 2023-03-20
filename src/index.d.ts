@@ -1,6 +1,6 @@
 import React from "react";
 
-interface Props {
+export interface ReactFlickityComponentProps {
   className?: string;
   disableImagesLoaded?: boolean;
   elementType?: string;
@@ -11,7 +11,7 @@ interface Props {
   children?: React.ReactNode;
 }
 
-declare class Flickity extends React.Component<Props, any> {
+declare class Flickity extends React.Component<ReactFlickityComponentProps, any> {
   public on(eventName: FlickityEventName, listener: Function): void;
   public off(eventName: FlickityEventName, listener: Function): void;
   public select(index: number, isWrapped?: boolean, isInstant?: boolean): void;

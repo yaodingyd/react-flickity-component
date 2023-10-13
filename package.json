@@ -1,6 +1,6 @@
 {
   "name": "react-flickity-component",
-  "version": "4.0.7",
+  "version": "4.0.6",
   "description": "react flickity component",
   "files": [
     "dist",
@@ -9,15 +9,10 @@
   "main": "./dist/react-flickity-component.umd.js",
   "module": "./dist/react-flickity-component.es.js",
   "exports": {
-    ".": {
-      "import": {
-        "default": "./dist/react-flickity-component.es.js",
-        "types": "./src/index.d.ts"
-      },
-      "require": {
-        "default": "./dist/react-flickity-component.umd.js",
-        "types": "./src/index.f.ts"
-      }
+    ".":  {
+      "types": "./src/index.d.ts",
+      "import": "./dist/react-flickity-component.es.js",
+      "require": "./dist/react-flickity-component.umd.js"
     }
   },
   "scripts": {

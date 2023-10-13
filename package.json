@@ -9,7 +9,7 @@
   "main": "./dist/react-flickity-component.umd.js",
   "module": "./dist/react-flickity-component.es.js",
   "exports": {
-    ".":  {
+    ".": {
       "types": "./src/index.d.ts",
       "import": "./dist/react-flickity-component.es.js",
       "require": "./dist/react-flickity-component.umd.js"

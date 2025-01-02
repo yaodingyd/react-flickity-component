@@ -1,5 +1,6 @@
 import Flickity from '../src/index.js'
 import './App.css'
+import React from 'react'
 
 import Default from './Default.jsx'
 import Static from './Static.jsx'

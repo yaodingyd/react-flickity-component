@@ -17,20 +17,15 @@ export default defineConfig(({ command, mode }) => {
     },
   }
 
-
-  
-
-
-
-
-
   if (command === 'build') {
     if (mode === 'docs') {
       return {
         ...base,
         base: '/react-flickity-component/',
+        root: resolve(__dirname, 'examples'),
         build: {
-          outDir: 'docs',
+          outDir: '../docs',
+          emptyOutDir: true,
         },
       }
     } else {

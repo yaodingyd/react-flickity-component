@@ -3,20 +3,19 @@
   "version": "4.0.7",
   "description": "react flickity component",
   "files": [
-    "dist",
-    "src/index.d.ts"
+    "dist"
   ],
   "main": "./dist/react-flickity-component.umd.js",
   "module": "./dist/react-flickity-component.es.js",
   "exports": {
     ".": {
-      "types": "./src/index.d.ts",
+      "types": "./dist/index.d.ts",
       "import": "./dist/react-flickity-component.es.js",
       "require": "./dist/react-flickity-component.umd.js"
     }
   },
   "scripts": {
-    "pretty": "prettier --single-quote --trailing-comma es5 --write \"src/**/*.js\" \"examples/**/*.jsx\"",
+    "pretty": "prettier --single-quote --trailing-comma es5 --write \"src/**/*.ts\" \"examples/**/*.tsx\"",
     "test": "vitest",
     "dev": "vite serve ./examples",
     "build": "vite build",
@@ -37,28 +36,32 @@
     "react-component"
   ],
   "dependencies": {
-    "imagesloaded": "^4.1.4",
-    "prop-types": "^15.7.2"
+    "imagesloaded": "^4.1.4"
   },
   "devDependencies": {
     "@originjs/vite-plugin-commonjs": "^1.0.3",
-    "@testing-library/jest-dom": "^5.16.5",
-    "@testing-library/react": "^13.4.0",
-    "@types/react": "^18.0.26",
-    "@types/react-dom": "^18.0.9",
+    "@testing-library/jest-dom": "^6.0.0",
+    "@testing-library/react": "^16.0.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "@types/flickity": "^2.2.0",
+    "@types/imagesloaded": "^4.1.0",
     "@vitejs/plugin-react": "^4.0.0",
     "flickity": "^2.2.1",
-    "jsdom": "^20.0.3",
-    "prettier": "^2.8.1",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
+    "jsdom": "^25.0.0",
+    "prettier": "^3.0.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "typescript": "^5.0.0",
     "vite": "^6.0.0",
-    "vitest": "^0.25.7"
+    "vite-plugin-dts": "^4.0.0",
+    "vitest": "^2.0.0"
   },
   "peerDependencies": {
     "flickity": "^2.2.1",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
   },
-  "typings": "./src/index.d.ts"
+  "typings": "./dist/index.d.ts",
+  "packageManager": "pnpm@10.12.1+sha512.f0dda8580f0ee9481c5c79a1d927b9164f2c478e90992ad268bbb2465a736984391d6333d2c327913578b2804af33474ca554ba29c04a8b13060a717675ae3ac"
 }

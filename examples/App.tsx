@@ -1,9 +1,9 @@
-import Flickity from '../src/index.js'
+import Flickity from '../src/index'
 import './App.css'
 import React from 'react'
 
-import Default from './Default.jsx'
-import Static from './Static.jsx'
+import Default from './Default'
+import Static from './Static'
 
 function App() {
   return (

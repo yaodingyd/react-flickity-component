@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
-import Flickity from '../src/index.js'
-import { images } from './images.js'
+import Flickity from '../src/index'
+import { images } from './images'
 
-export default function Default() {
+export default function Static() {
   const [imgs, setImages] = useState(images)
 
   function addImage() {

@@ -9,11 +9,22 @@ const canUseDOM = !!(
   window.document.createElement
 );
 
-
-export type FlickityEventName = 'ready' | 'change' | 'select' | 'settle' | 'scroll' | 'dragStart'
-  | 'dragMove' | 'dragEnd' | 'pointerDown' | 'pointerMove' | 'pointerUp' 
-  | 'staticClick' | 'lazyLoad' | 'bgLazyLoad' | 'fullscreenChange';
-
+export type FlickityEventName =
+  | 'ready'
+  | 'change'
+  | 'select'
+  | 'settle'
+  | 'scroll'
+  | 'dragStart'
+  | 'dragMove'
+  | 'dragEnd'
+  | 'pointerDown'
+  | 'pointerMove'
+  | 'pointerUp'
+  | 'staticClick'
+  | 'lazyLoad'
+  | 'bgLazyLoad'
+  | 'fullscreenChange';
 
 export interface ReactFlickityComponentProps {
   className?: string;
@@ -40,7 +51,10 @@ interface FlickityInstance extends Flickity {
   activate: () => void;
 }
 
-class FlickityComponent extends Component<ReactFlickityComponentProps, FlickityComponentState> {
+class FlickityComponent extends Component<
+  ReactFlickityComponentProps,
+  FlickityComponentState
+> {
   static defaultProps: Partial<ReactFlickityComponentProps> = {
     className: '',
     disableImagesLoaded: false,
@@ -63,14 +77,20 @@ class FlickityComponent extends Component<ReactFlickityComponentProps, FlickityC
     };
   }
 
-  static getDerivedStateFromProps(props: ReactFlickityComponentProps, state: FlickityComponentState) {
+  static getDerivedStateFromProps(
+    props: ReactFlickityComponentProps,
+    state: FlickityComponentState
+  ) {
     const cellCount = React.Children.count(props.children);
     if (cellCount !== state.cellCount)
       return { flickityReady: false, cellCount };
     return null;
   }
 
-  componentDidUpdate(prevProps: ReactFlickityComponentProps, prevState: FlickityComponentState) {
+  componentDidUpdate(
+    prevProps: ReactFlickityComponentProps,
+    prevState: FlickityComponentState
+  ) {
     if (!this.flkty) return;
     const {
       children,
@@ -79,7 +99,7 @@ class FlickityComponent extends Component<ReactFlickityComponentProps, FlickityC
       disableImagesLoaded,
     } = this.props;
     const { flickityReady } = this.state;
-    
+
     if (reloadOnUpdate || (!prevState.flickityReady && flickityReady)) {
       const isActive = this.flkty.isActive;
       this.flkty.deactivate();
@@ -100,7 +120,6 @@ class FlickityComponent extends Component<ReactFlickityComponentProps, FlickityC
       this.flkty.reloadCells();
     }
   }
-
 
   async componentDidMount() {
     if (!canUseDOM || !this.carousel) return;
@@ -133,8 +152,13 @@ class FlickityComponent extends Component<ReactFlickityComponentProps, FlickityC
   }
 
   render() {
-    const { elementType = 'div', className = '', static: isStatic, children } = this.props;
-    
+    const {
+      elementType = 'div',
+      className = '',
+      static: isStatic,
+      children,
+    } = this.props;
+
     return React.createElement(
       elementType,
       {

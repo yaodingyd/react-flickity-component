@@ -1,16 +1,18 @@
-import Flickity from '../src/index'
-import './App.css'
-import React from 'react'
+import Flickity from '../src/index';
+import './App.css';
+import React from 'react';
 
-import Default from './Default'
-import Static from './Static'
+import Default from './Default';
+import Static from './Static';
 
 function App() {
   return (
     <>
       <header>
         <nav>
-          <a href="https://github.com/yaodingyd/react-flickity-component">Github</a>
+          <a href="https://github.com/yaodingyd/react-flickity-component">
+            Github
+          </a>
         </nav>
         <h1>React-Flickity-Component</h1>
       </header>
@@ -20,7 +22,7 @@ function App() {
         <Static />
       </main>
     </>
-  )
+  );
 }
 
-export default App
+export default App;

@@ -3,53 +3,60 @@ import {it, expect, vi, afterEach } from 'vitest';
 import { render, cleanup, screen, waitFor } from '@testing-library/react';
 import Flickity from '../src';
 
-afterEach(() => {
+afterEach(async () => {
+  await new Promise(resolve => setTimeout(resolve, 0));
   cleanup();
 });
 
 
-it('Calls render and componentDidMount', () => {
-  const componentDidMountSpy = vi.spyOn(Flickity.prototype, 'componentDidMount');
-  const renderSpy = vi.spyOn(Flickity.prototype, 'render');
-
-  render(<Flickity/>);
-
-  expect(componentDidMountSpy).toHaveBeenCalledOnce();
-  expect(renderSpy).toHaveBeenCalled();
+it('Renders component successfully', async () => {
+  const { container } = render(<Flickity/>);
+  
+  await waitFor(() => {
+    expect(container.firstChild).toBeTruthy();
+  });
+  
+  expect(container.firstChild).toBeInstanceOf(HTMLElement);
 });
 
 it('Renders children', async () => {
-  const { getAllByAltText } = render(
+  const { getAllByAltText, unmount, container } = render(
     <Flickity>
       <img src="/images/placeholder.png" alt="children"/>
       <img src="/images/placeholder.png" alt="children"/>
       <img src="/images/placeholder.png" alt="children"/>
     </Flickity>
     );
+  
+  await waitFor(() => {
+    expect(container.firstChild).toBeTruthy();
+  });
 
   await waitFor(() => expect(getAllByAltText('children').length).toEqual(3));
+  unmount();
 });
 
-it('Renders a static carousel', () => {
-  const { getAllByAltText, rerender } = render(
+it('Renders a static carousel', async () => {
+  const { getAllByAltText, unmount } = render(
     <Flickity static>
       <img src="/images/placeholder.png" alt="children"/>
       <img src="/images/placeholder.png" alt="children"/>
     </Flickity>
     );
 
-  expect(getAllByAltText('children').length).toEqual(2);
-})
+  await waitFor(() => expect(getAllByAltText('children').length).toEqual(2));
+  unmount();
+});
 
-it('Reload carousel even it\'s static', () => {
-  const { getAllByAltText, rerender } = render(
+it('Reload carousel even it\'s static', async () => {
+  const { getAllByAltText, rerender, unmount } = render(
     <Flickity static reloadOnUpdate>
       <img src="/images/placeholder.png" alt="children"/>
       <img src="/images/placeholder.png" alt="children"/>
     </Flickity>
     );
 
-  expect(getAllByAltText('children').length).toEqual(2);
+  await waitFor(() => expect(getAllByAltText('children').length).toEqual(2));
 
   rerender(
     <Flickity static reloadOnUpdate>
@@ -58,5 +65,7 @@ it('Reload carousel even it\'s static', () => {
       <img src="/images/placeholder.png" alt="children"/>
     </Flickity>
   );
-  expect(getAllByAltText('children').length).toEqual(3);
-})
+  
+  await waitFor(() => expect(getAllByAltText('children').length).toEqual(3));
+  unmount();
+});

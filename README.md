@@ -1,8 +1,6 @@
 React Flickity Component
 =======================
 
-[![styled with prettier](https://img.shields.io/badge/styled_with-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
-
 # Introduction:
 A React.js Flickity component.
 
@@ -15,6 +13,9 @@ npm install react-flickity-component
 ```
 
 # Usage:
+
+## V5 Updates
+V5 supports react v19 and above. 
 
 ## V4 Updates
 V4 only supports react v18 and above. V4 also comes with an esmodule bundle format to support modern frontend tooling like vite.

@@ -115,12 +115,6 @@ class FlickityComponent extends Component<ReactFlickityComponentProps, FlickityC
     }
   }
 
-  componentWillUnmount() {
-    if (this.flkty) {
-      this.flkty.destroy();
-    }
-  }
-
   setReady() {
     if (this.state.flickityReady) return;
     const setFlickityToReady = () => this.setState({ flickityReady: true });

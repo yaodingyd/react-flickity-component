@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import Flickity from '../src/index';
 import { images } from './images';
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { oneDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
 
 export default function Static() {
   const [imgs, setImages] = useState(images);
@@ -12,20 +14,26 @@ export default function Static() {
   }
 
   return (
-    <>
-      <h3>Static</h3>
-      <pre>
-        &lt;Flickity static
-        reloadOnUpdate&gt;&#123;children&#125;&lt;&#47;Flickity&gt;
-      </pre>
-      <p className="carousel">
+    <div className="example-card">
+      <h3>Static Mode with Reload</h3>
+      <p>Static carousel that reloads when content updates. Better for SSR but requires reloadOnUpdate for dynamic content.</p>
+      <SyntaxHighlighter
+        language="jsx"
+        style={oneDark}
+        customStyle={{ borderRadius: '8px', fontSize: '14px' }}
+      >
+        {`<Flickity static reloadOnUpdate>
+  {children}
+</Flickity>`}
+      </SyntaxHighlighter>
+      <div className="carousel">
         <Flickity static reloadOnUpdate>
           {imgs.map((image) => (
             <img src={image} key={image} className="carousel-image" />
           ))}
         </Flickity>
-      </p>
+      </div>
       <button onClick={addImage}>Add image to carousel</button>
-    </>
+    </div>
   );
 }
